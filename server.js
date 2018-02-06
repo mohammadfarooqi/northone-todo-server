@@ -1,7 +1,10 @@
+require('dotenv').config({ silent: true });
+
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const db = require('./web/models/db');
 
 //allow cross origin requests
 app.use((req, res, next) => { 
