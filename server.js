@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const { errors } = require('celebrate');
 const db = require('./web/models/db');
+const jobs = require('./scripts/cron-jobs');
 
 //allow cross origin requests
 app.use((req, res, next) => { 
@@ -44,3 +45,9 @@ app.use('*', (req, res) => res.status(404).json({
 // start server
 app.listen(PORT);
 console.log('App running on port ' + PORT);
+
+// start jobs
+if (process.env.emailJob) {
+  console.log('Enabling Email Job');
+  jobs.emailJob.start();
+}
