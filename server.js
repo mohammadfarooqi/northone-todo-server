@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const { errors } = require('celebrate');
 const db = require('./web/models/db');
 
 //allow cross origin requests
@@ -21,6 +22,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
 const PORT = process.env.PORT || 3000;
 
 // routes for api
@@ -30,6 +32,9 @@ require('./web/routes/routes')(router);
 
 // register routes... routes prefixed /api
 app.use('/api', router);
+
+// celebrate errors
+app.use(errors());
 
 // default catch-all route that sends back a error message in JSON format.
 app.use('*', (req, res) => res.status(404).json({
