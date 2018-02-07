@@ -8,7 +8,7 @@ const getAll = (req, res) => {
     })
     .catch(err => {
       console.error('Error in Todo getAll: ', JSON.stringify(err));
-      return res.statusCode(500).json({ message: 'An Error occured in getAll todos', error: JSON.stringify(err) });
+      return res.status(500).json({ message: 'An Error occured in getAll todos', error: JSON.stringify(err) });
     });
 };
 
@@ -22,7 +22,7 @@ const getOne = (req, res) => {
     })
     .catch(err => {
       console.error('Error in Todo getOne: ', JSON.stringify(err));
-      return res.statusCode(500).json({ message: 'An Error occured in getOne todos', error: JSON.stringify(err) });
+      return res.status(500).json({ message: 'An Error occured in getOne todos', error: JSON.stringify(err) });
     });
 };
 
@@ -36,7 +36,7 @@ const create = (req, res) => {
     })
     .catch((err) => {
       console.error('Error in Todo create: ', JSON.stringify(err));
-      return res.statusCode(500).json({ message: 'An Error occured in create todos', error: JSON.stringify(err) });
+      return res.status(500).json({ message: 'An Error occured in create todos', error: JSON.stringify(err) });
     });
 };
 
@@ -51,7 +51,7 @@ const update = (req, res) => {
     })
     .catch((err) => {
       console.error('Error in Todo update: ', JSON.stringify(err));
-      return res.statusCode(500).json({ message: 'An Error occured in update todos', error: JSON.stringify(err) });
+      return res.status(500).json({ message: 'An Error occured in update todos', error: JSON.stringify(err) });
     });
 };
 
@@ -65,7 +65,7 @@ const remove = (req, res) => {
     })
     .catch((err) => {
       console.error('Error in Todo remove: ', JSON.stringify(err));
-      return res.statusCode(500).json({ message: 'An Error occured in remove todos', error: JSON.stringify(err) });
+      return res.status(500).json({ message: 'An Error occured in remove todos', error: JSON.stringify(err) });
     });
 };
 
