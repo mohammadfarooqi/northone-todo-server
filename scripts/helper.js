@@ -59,7 +59,7 @@ function sendReminders() {
   .then(todos => {
     return Promise.all(todos.map(todo => {
       // 5 min reminder
-      if(todo && todo.reminder && todo.reminder.email && todo.reminder.sent === false && 
+      if(todo && todo.reminder && todo.reminder.sent === false && 
           (moment().isAfter(moment(todo.due_date)) || moment(todo.due_date).isBetween(moment().subtract(5, 'minutes'), moment(), null, '[]'))) {
           let to = todo.reminder.email || process.env.TO_EMAIL || 'shariq_2001@hotmail.com';
           const bodyHtml = '<strong>Title:</strong> ' + todo.title + 
