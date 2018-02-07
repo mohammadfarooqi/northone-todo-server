@@ -1,2 +1,4 @@
 MONGODB_URI=mongodb://localhost:27017/NorthOneTodoApp
 emailJob=<true/false>
+ELASTIC_EMAIL_API_KEY=apikey
+TO_EMAIL=xxx@email.com
