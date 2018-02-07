@@ -20,7 +20,24 @@ const todoSchema = new Schema({
   due_date: {
     type: Date,
     required: true
-  }
+  },
+  reminder: {
+    _id: false,
+    email: {
+      type: String,
+      required: false
+    },
+    sent: {
+      type: Boolean, 
+      required: false,
+      default: false
+    }
+  },
+  category_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: false,
+    ref: 'Category',
+  },
 });
 
 const Todo = mongoose.model('Todo', todoSchema);
